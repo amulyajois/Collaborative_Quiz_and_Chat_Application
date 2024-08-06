@@ -1,4 +1,4 @@
-# Snappy - Chat Application 
+# QuizBuddy
 
 
 ## Installation Guide
