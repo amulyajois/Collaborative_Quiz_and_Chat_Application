@@ -1,5 +1,8 @@
 const User = require("../models/userModel");
 const bcrypt = require("bcrypt");
+const questions = require("../data/questions");
+
+// Define questions here or import them if needed
 
 module.exports.login = async (req, res, next) => {
   try {
@@ -10,7 +13,6 @@ module.exports.login = async (req, res, next) => {
     const isPasswordValid = await bcrypt.compare(password, user.password);
     if (!isPasswordValid)
       return res.json({ msg: "Incorrect Username or Password", status: false });
-    delete user.password;
     return res.json({ status: true, user });
   } catch (ex) {
     next(ex);
@@ -32,7 +34,6 @@ module.exports.register = async (req, res, next) => {
       username,
       password: hashedPassword,
     });
-    delete user.password;
     return res.json({ status: true, user });
   } catch (ex) {
     next(ex);
@@ -79,6 +80,36 @@ module.exports.logOut = (req, res, next) => {
     if (!req.params.id) return res.json({ msg: "User id is required " });
     onlineUsers.delete(req.params.id);
     return res.status(200).send();
+  } catch (ex) {
+    next(ex);
+  }
+};
+
+module.exports.getQuestion = async (req, res, next) => {
+  try {
+    const randomQuestion =
+      questions[Math.floor(Math.random() * questions.length)];
+    res.json(randomQuestion);
+  } catch (ex) {
+    next(ex);
+  }
+};
+
+module.exports.validateAnswer = (req, res, next) => {
+  try {
+    const { question, selectedOption } = req.body;
+    const questionData = questions.find((q) => q.question === question);
+
+    if (!questionData) {
+      return res.status(400).json({ msg: "Question not found" });
+    }
+
+    const correctAnswer = questionData.correctAnswer;
+    if (selectedOption === correctAnswer) {
+      res.json({ status: true });
+    } else {
+      res.json({ status: false });
+    }
   } catch (ex) {
     next(ex);
   }

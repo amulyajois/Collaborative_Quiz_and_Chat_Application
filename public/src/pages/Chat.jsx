@@ -45,6 +45,13 @@ export default function Chat() {
   const handleChatChange = (chat) => {
     setCurrentChat(chat);
   };
+  const handleQuizRedirect = () => {
+    navigate('/quiz');
+  };
+  const handleLeaderboardRedirect = () => {
+    navigate('/leaderboard');
+  };
+
   return (
     <>
       <Container>
@@ -55,6 +62,10 @@ export default function Chat() {
           ) : (
             <ChatContainer currentChat={currentChat} socket={socket} />
           )}
+        </div>
+        <div>
+          <button onClick={handleQuizRedirect}>Test Your Knowledge!!</button>
+          <button onClick={handleLeaderboardRedirect}>Want to know where u stand?</button>
         </div>
       </Container>
     </>
@@ -78,6 +89,22 @@ const Container = styled.div`
     grid-template-columns: 25% 75%;
     @media screen and (min-width: 720px) and (max-width: 1080px) {
       grid-template-columns: 35% 65%;
+    }
+  }
+  button {
+    background-color: #4e0eff;
+    color: white;
+    padding: 1rem 2rem;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    border-radius: 0.4rem;
+    font-size: 1rem;
+    text-transform: uppercase;
+    &:hover {
+      background-color: #4e0eff;
+}
+        margin-left: 20rem;
     }
   }
 `;
