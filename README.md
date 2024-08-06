@@ -17,10 +17,10 @@
 - **Interactive Leaderboard**: View and compete for the top spots based on quiz scores.
   
 ## 🛠️ Technologies Used
-**Frontend**: React, 
-**Backend**: Node.js, Express
-**Database**: MongoDB
-**Real-Time Communication**: Socket.io
+-**Frontend**: React, 
+-**Backend**: Node.js, Express
+-**Database**: MongoDB
+-**Real-Time Communication**: Socket.io
 
 ### Requirements
 - [Nodejs](https://nodejs.org/en/download)
