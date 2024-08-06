@@ -14,7 +14,14 @@
 
 - **Chat Platform**: Engage with other users in real-time while participating in quizzes.
 - **Dynamic Quizzes**: Test and expand knowledge with a range of questions.
-- **Interactive Leaderboard**: View and compete for the top spots based on quiz scores.## Installation Guide
+- **Interactive Leaderboard**: View and compete for the top spots based on quiz scores.
+- 
+## 🛠️ Technologies Used
+Frontend: React, Redux
+Backend: Node.js, Express
+Database: MongoDB
+Real-Time Communication: Socket.io
+Containerization: Docker (optional)
 
 ### Requirements
 - [Nodejs](https://nodejs.org/en/download)
