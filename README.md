@@ -30,7 +30,8 @@ Both should be installed and make sure mongodb is running.
 
 ### Installation
 ```shell
-git clone https://github.com/amulyajois/chatapp
+git clone https://github.com/amulyajois/Collaborative_Quiz_and_Chat_Application
+
 cd chatapp
 cd public
 mv .env.example .env
